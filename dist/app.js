@@ -4,12 +4,6 @@ const characters={
   ellen:{name:'Ellen',actor:'Taís Araújo',description:'Ellen adora moda, grifes e tudo o que promete uma vida mais sofisticada. Sua personalidade expansiva combina com o tamanho dos seus sonhos e com sua atenção às vitrines.',style:'Produções ousadas, referências de grife e o prazer de se vestir para ser vista.'},
   'bel-duda':{name:'Bel & Duda',actor:'Mariana Ximenes e Daniel de Oliveira',description:'Ela se dedica ao universo dos perfumes. Ele trabalha como motoboy. Bel e Duda representam o lado romântico de uma história que aproxima pessoas de universos diferentes.',style:'A leveza e os tons suaves de Bel encontram a informalidade do cotidiano de Duda.'}
 };
-const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('#navigation'),menuScrim=document.querySelector('.menu-scrim'),drawerClose=document.querySelector('.drawer-close');
-function setMenu(open){menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');nav.classList.toggle('open',open);menuScrim.hidden=!open;document.body.classList.toggle('menu-open',open);if(open)drawerClose.focus()}
-menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
-drawerClose.addEventListener('click',()=>{setMenu(false);menu.focus()});menuScrim.addEventListener('click',()=>setMenu(false));
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&nav.classList.contains('open')){setMenu(false);menu.focus()}});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',String(b===button))});document.querySelectorAll('.character-card').forEach(card=>card.hidden=button.dataset.filter!=='all'&&card.dataset.world!==button.dataset.filter)}));
 function openDialog(dialog){dialog.showModal();document.body.classList.add('modal-open')}
 document.querySelectorAll('.character-card').forEach(card=>card.addEventListener('click',()=>{const key=card.dataset.character,c=characters[key];document.querySelector('#dialog-name').textContent=c.name;document.querySelector('#dialog-actor').textContent=c.actor;document.querySelector('#dialog-description').textContent=c.description;document.querySelector('#dialog-style').textContent=c.style;document.querySelector('#dialog-image').src=`assets/${key}.jpg`;document.querySelector('#dialog-image').alt=`${c.actor} como ${c.name}`;openDialog(document.querySelector('#character-dialog'))}));
@@ -33,15 +27,13 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 installButton.addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true});
 if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.matchMedia('(display-mode: standalone)').matches)iosTip.hidden=false;
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
-const progressBar=document.querySelector('.reading-progress span');let progressTick=false;
-function updateReadingProgress(){const max=document.documentElement.scrollHeight-innerHeight;const value=max>0?Math.min(scrollY/max,1):0;progressBar.style.transform=`scaleX(${value})`;progressTick=false}
-addEventListener('scroll',()=>{if(!progressTick){progressTick=true;requestAnimationFrame(updateReadingProgress)}},{passive:true});updateReadingProgress();
-const sectionLinks=[...nav.querySelectorAll('a[href^="#"]')],observedSections=sectionLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
-if('IntersectionObserver' in window){
-  const sectionObserver=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;sectionLinks.forEach(link=>{const active=link.getAttribute('href')===`#${visible.target.id}`;if(active)link.setAttribute('aria-current','true');else link.removeAttribute('aria-current')})},{rootMargin:'-28% 0px -55%',threshold:[0,.2,.5]});
-  observedSections.forEach(section=>sectionObserver.observe(section));
-  const revealTargets=document.querySelectorAll('.intro>*,.section-heading>*,.character-card,.worlds-top,.world-stage,.vibe-heading,.quiz-card,.record-art,.soundtrack-copy,.install-strip,.endnote');
-  document.body.classList.add('reveal-ready');revealTargets.forEach(target=>target.classList.add('reveal-item'));
-  const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -8%',threshold:.08});
-  revealTargets.forEach(target=>revealObserver.observe(target));
-}
+const appMain=document.querySelector('#conteudo');
+const screens={inicio:{title:'Início',selectors:['.home-welcome','#inicio','.home-hub']},novela:{title:'A novela',selectors:['#historia','#universos']},elenco:{title:'Elenco',selectors:['#personagens']},quiz:{title:'Seu perfil',selectors:['#quiz']},trilha:{title:'Trilha sonora',selectors:['#trilha']}};
+for(const [key,screen] of Object.entries(screens)){const panel=document.createElement('div');panel.id=`panel-${key}`;panel.className='app-panel';panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',`tab-${key}`);panel.tabIndex=0;panel.hidden=key!=='inicio';screen.selectors.forEach(selector=>panel.append(document.querySelector(selector)));appMain.append(panel)}
+document.querySelectorAll('.ticker,.serpent-stitch,.endnote').forEach(node=>node.remove());
+document.querySelector('#credits-dialog .credits-copy').append(document.querySelector('.install-strip'));
+const tabButtons=[...document.querySelectorAll('[role="tab"]')];
+const routes={inicio:'inicio',historia:'novela',universos:'novela',novela:'novela',personagens:'elenco',elenco:'elenco',quiz:'quiz',trilha:'trilha'};
+function showScreen(route){const key=routes[route]||'inicio';Object.keys(screens).forEach(id=>document.querySelector(`#panel-${id}`).hidden=id!==key);tabButtons.forEach(button=>{const selected=button.dataset.tab===key;button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1});document.querySelector('.app-screen-title').textContent=screens[key].title;document.title=`${screens[key].title} · Cobras & Lagartos`;window.scrollTo({top:0,behavior:'instant'});if(route==='universos')document.querySelector('#universos').scrollIntoView({behavior:'instant'});}
+tabButtons.forEach((button,index)=>{button.addEventListener('click',()=>{if(location.hash===`#${button.dataset.tab}`)showScreen(button.dataset.tab);else location.hash=button.dataset.tab});button.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabButtons.length;else if(event.key==='ArrowLeft')next=(index-1+tabButtons.length)%tabButtons.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=tabButtons.length-1;else return;event.preventDefault();tabButtons[next].focus();tabButtons[next].click()})});
+addEventListener('hashchange',()=>showScreen(location.hash.slice(1)));showScreen(location.hash.slice(1));
