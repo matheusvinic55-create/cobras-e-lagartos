@@ -33,3 +33,15 @@ window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();ins
 installButton.addEventListener('click',async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true});
 if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.matchMedia('(display-mode: standalone)').matches)iosTip.hidden=false;
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+const progressBar=document.querySelector('.reading-progress span');let progressTick=false;
+function updateReadingProgress(){const max=document.documentElement.scrollHeight-innerHeight;const value=max>0?Math.min(scrollY/max,1):0;progressBar.style.transform=`scaleX(${value})`;progressTick=false}
+addEventListener('scroll',()=>{if(!progressTick){progressTick=true;requestAnimationFrame(updateReadingProgress)}},{passive:true});updateReadingProgress();
+const sectionLinks=[...nav.querySelectorAll('a[href^="#"]')],observedSections=sectionLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver' in window){
+  const sectionObserver=new IntersectionObserver(entries=>{const visible=entries.filter(entry=>entry.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;sectionLinks.forEach(link=>{const active=link.getAttribute('href')===`#${visible.target.id}`;if(active)link.setAttribute('aria-current','true');else link.removeAttribute('aria-current')})},{rootMargin:'-28% 0px -55%',threshold:[0,.2,.5]});
+  observedSections.forEach(section=>sectionObserver.observe(section));
+  const revealTargets=document.querySelectorAll('.intro>*,.section-heading>*,.character-card,.worlds-top,.world-stage,.vibe-heading,.quiz-card,.record-art,.soundtrack-copy,.install-strip,.endnote');
+  document.body.classList.add('reveal-ready');revealTargets.forEach(target=>target.classList.add('reveal-item'));
+  const revealObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target)}}),{rootMargin:'0px 0px -8%',threshold:.08});
+  revealTargets.forEach(target=>revealObserver.observe(target));
+}
