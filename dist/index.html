@@ -10,12 +10,19 @@
 </head>
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+  <div class="ambient-lights" aria-hidden="true"></div>
   <header class="header">
-    <a class="brand" href="#inicio" aria-label="Cobras e Lagartos, início">C<span>&</span>L<span class="brand-dot">●</span></a>
-    <nav aria-label="Navegação principal" id="navigation"><a href="#historia">A novela</a><a href="#personagens">Personagens</a><a href="#universos">Dois mundos</a><a href="#quiz">Sua energia</a><a href="#trilha">Trilha sonora</a></nav>
+    <div class="header-menu-brand"><button class="menu-toggle" aria-controls="navigation" aria-expanded="false" aria-label="Abrir menu"><span></span><span></span></button><strong>MENU</strong></div>
+    <a class="brand" href="#inicio" aria-label="Cobras e Lagartos, início">COBRAS <span>&</span> LAGARTOS</a>
     <span class="safe"><span>✳</span> Pode explorar. Sem spoilers.</span>
-    <button class="menu-toggle" aria-controls="navigation" aria-expanded="false" aria-label="Abrir menu">☰</button>
   </header>
+  <button class="menu-scrim" aria-label="Fechar menu" hidden></button>
+  <nav aria-label="Navegação principal" id="navigation">
+    <div class="drawer-header"><span class="drawer-brand">✦ <b>COBRAS & LAGARTOS</b></span><button class="drawer-close" aria-label="Fechar menu">×</button></div>
+    <div class="drawer-rule"></div><p class="drawer-kicker">Escolha um caminho</p>
+    <a href="#historia"><span>01</span>A novela <i>→</i></a><a href="#personagens"><span>02</span>Personagens <i>→</i></a><a href="#universos"><span>03</span>Dois mundos <i>→</i></a><a href="#quiz"><span>04</span>Sua energia <i>→</i></a><a href="#trilha"><span>05</span>Trilha sonora <i>→</i></a>
+    <div class="drawer-rule drawer-rule--footer"></div><p class="drawer-signature">Entre o luxo e o veneno.</p>
+  </nav>
   <main id="conteudo">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-text"><p class="eyebrow"><span class="small-star">✳</span> RIO DE JANEIRO, 2006</p>
