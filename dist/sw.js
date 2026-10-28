@@ -1,4 +1,4 @@
-const CACHE='cobras-lagartos-v5';
+const CACHE='cobras-lagartos-v6';
 const ASSETS=['/','/index.html','/style.css','/app-shell.css','/app.js','/icon.svg','/manifest.webmanifest','/assets/elenco.jpg','/assets/leona.jpg','/assets/foguinho.jpg','/assets/ellen.jpg','/assets/bel-duda.jpg','/assets/luxus.jpg','/assets/saara.jpg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
