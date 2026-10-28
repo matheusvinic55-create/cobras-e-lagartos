@@ -1,0 +1,11 @@
+{
+  "name": "Cobras & Lagartos — Entre o luxo e o veneno",
+  "short_name": "Cobras & Lagartos",
+  "description": "Uma experiência de fã, sem spoilers, sobre a novela Cobras & Lagartos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f1e7",
+  "theme_color": "#173c29",
+  "lang": "pt-BR",
+  "icons": [{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
