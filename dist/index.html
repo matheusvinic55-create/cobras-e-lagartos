@@ -2,9 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#173c29"><meta name="description" content="Entre o luxo e o veneno: explore o universo de Cobras & Lagartos, seus personagens, cenários e músicas. Uma experiência feita por fã, sem spoilers.">
+  <meta name="theme-color" content="#061d14"><meta name="description" content="Entre o luxo e o veneno: explore o universo de Cobras & Lagartos, seus personagens, cenários e músicas. Uma experiência feita por fã, sem spoilers.">
   <title>Cobras & Lagartos — Entre o luxo e o veneno</title>
-  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon.svg"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="app-shell.css">
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon.svg"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="app-shell.css"><link rel="stylesheet" href="home-design.css">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 </head>
@@ -14,34 +14,35 @@
   <header class="header">
     <a class="brand" href="#inicio" aria-label="Cobras e Lagartos, início">C<span>&</span>L</a>
     <span class="app-screen-title">Início</span>
-    <button id="credits-open" class="app-info" aria-label="Sobre este aplicativo">i</button>
+    <button id="credits-open" class="app-info" aria-label="Sobre este aplicativo"><img src="assets/icons/info.svg" alt="" width="34" height="34"></button>
   </header>
   <nav class="app-tabs" role="tablist" aria-label="Áreas do aplicativo">
-    <button role="tab" id="tab-inicio" data-tab="inicio" aria-controls="panel-inicio" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>Início</span></button>
-    <button role="tab" id="tab-novela" data-tab="novela" aria-controls="panel-novela" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5C8 2 3 4 3 4v15s5-2 9 1c4-3 9-1 9-1V4s-5-2-9 1v15"/></svg><span>A novela</span></button>
-    <button role="tab" id="tab-elenco" data-tab="elenco" aria-controls="panel-elenco" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/></svg><span>Elenco</span></button>
-    <button role="tab" id="tab-quiz" data-tab="quiz" aria-controls="panel-quiz" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg><span>Seu perfil</span></button>
-    <button role="tab" id="tab-trilha" data-tab="trilha" aria-controls="panel-trilha" aria-selected="false" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13M9 8l12-2"/><ellipse cx="6" cy="18" rx="3" ry="3"/><ellipse cx="18" cy="16" rx="3" ry="3"/></svg><span>Trilha</span></button>
+    <button role="tab" id="tab-inicio" data-tab="inicio" aria-controls="panel-inicio" aria-selected="true"><img class="tab-icon" src="assets/icons/house.svg" alt="" width="24" height="24"><span>Início</span></button>
+    <button role="tab" id="tab-novela" data-tab="novela" aria-controls="panel-novela" aria-selected="false" tabindex="-1"><img class="tab-icon" src="assets/icons/book-open.svg" alt="" width="24" height="24"><span>A novela</span></button>
+    <button role="tab" id="tab-elenco" data-tab="elenco" aria-controls="panel-elenco" aria-selected="false" tabindex="-1"><img class="tab-icon" src="assets/icons/users.svg" alt="" width="24" height="24"><span>Elenco</span></button>
+    <button role="tab" id="tab-quiz" data-tab="quiz" aria-controls="panel-quiz" aria-selected="false" tabindex="-1"><img class="tab-icon" src="assets/icons/user.svg" alt="" width="24" height="24"><span>Perfil</span></button>
+    <button role="tab" id="tab-trilha" data-tab="trilha" aria-controls="panel-trilha" aria-selected="false" tabindex="-1"><img class="tab-icon" src="assets/icons/music-notes.svg" alt="" width="24" height="24"><span>Trilha</span></button>
   </nav>
   <main id="conteudo">
-    <div class="home-welcome"><div><p class="eyebrow">SEU UNIVERSO, SEM SPOILERS</p><h2>Bem-vindo à vitrine.</h2></div><span aria-hidden="true">✦</span></div>
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-text"><p class="eyebrow"><span class="small-star">✳</span> RIO DE JANEIRO, 2006</p>
-        <h1 id="hero-title">COBRAS<span class="title-bottom"><em>&</em> LAGARTOS<span class="red-dot">.</span></span></h1>
-        <p class="hero-kicker">Entre o luxo<br>e o <i>veneno.</i></p>
-        <p class="hero-description">Uma cidade. Dois mundos. E uma ambição<br class="desktop"> que não cabe em nenhuma vitrine.</p>
-        <a class="button lime" href="#historia">Entre nessa história <span>↗</span></a>
-        <div class="hero-meta"><span>UMA NOVELA DE<br><b>JOÃO EMANUEL CARNEIRO</b></span><span>HUMOR, ROMANCE<br><b>E UMA DOSE DE VENENO</b></span></div>
+      <img class="home-hero-image" src="assets/home-hero.webp" alt="Ellen em destaque, com o Rio de Janeiro ao entardecer, o luxo das vitrines e o comércio do Saara" fetchpriority="high" width="1200" height="846">
+      <div class="hero-text"><p class="eyebrow">RIO DE JANEIRO, 2006</p>
+        <h1 id="hero-title">COBRAS<span class="title-bottom"><em>&</em>LAGARTOS<span class="red-dot">.</span></span></h1>
+        <p class="hero-kicker">Luxo, ambição e <i>veneno.</i></p>
+        <a class="button lime" href="#historia">Entrar na trama <img class="ui-icon" src="assets/icons/arrow-right.svg" alt="" width="22" height="22"></a>
       </div>
-      <div class="hero-art">
-        <div class="orbit" aria-hidden="true"></div><span class="art-label">APARÊNCIAS ENGANAM.</span>
-        <figure class="hero-photo"><img src="assets/elenco.jpg" alt="Personagens de Cobras & Lagartos em fotografia de divulgação" fetchpriority="high"><figcaption>O charme é de 2006. A ambição é atemporal.</figcaption></figure>
-        <div class="poison-stamp" aria-hidden="true">CUIDADO:<br><b>CONTÉM<br>CARISMA.</b><span>✳</span></div>
-        <span class="art-spark" aria-hidden="true">✴</span><span class="vertical-note">UMA VITRINE DE PERSONALIDADES</span>
-      </div>
-      <a class="scroll-note" href="#historia">ROLE PARA DESCOBRIR <span>↓</span></a>
     </section>
-    <section class="home-hub" aria-label="Explore o aplicativo"><div class="hub-heading"><h2>O que vamos explorar?</h2><span>Escolha seu caminho</span></div><div class="hub-grid"><a href="#personagens"><span class="hub-icon">◉</span><b>Quem é quem</b><small>Rostos e personalidades</small><span class="hub-arrow">→</span></a><a href="#universos"><span class="hub-icon">◇</span><b>Dois mundos</b><small>Luxus encontra o Saara</small><span class="hub-arrow">→</span></a></div><a class="home-quiz" href="#quiz"><span>✳</span><div><small>UMA DESCOBERTA SOBRE VOCÊ</small><b>Luxus ou Saara?</b><p>Encontre a sua energia em 3 perguntas.</p></div><span>→</span></a><p class="home-signature">Humor, romance e uma dose de veneno.</p></section>
+    <section class="home-hub" aria-labelledby="home-explore-title">
+      <div class="hub-heading"><h2 id="home-explore-title">Explore o universo</h2><a href="#personagens">Ver tudo <img class="ui-icon" src="assets/icons/arrow-right.svg" alt="" width="18" height="18"></a></div>
+      <div class="hub-grid">
+        <a class="hub-card hub-cast" href="#personagens"><img class="hub-photo" src="assets/leona.jpg" alt="Leona, interpretada por Carolina Dieckmann" width="1080" height="831"><span class="hub-card-copy"><span class="hub-icon"><img src="assets/icons/users.svg" alt="" width="24" height="24"></span><b>Quem é quem</b><small>Rostos e<br>personalidades</small></span></a>
+        <a class="hub-card hub-worlds" href="#universos"><span class="world-photos" aria-hidden="true"><img src="assets/luxus.jpg" alt=""><img src="assets/saara.jpg" alt=""></span><span class="hub-card-copy"><span class="hub-icon"><img src="assets/icons/diamond.svg" alt="" width="24" height="24"></span><b>Luxus x Saara</b><small>Dois mundos,<br>mesma ambição</small></span></a>
+        <button class="hub-card hub-romance" id="moments-open" aria-haspopup="dialog"><img class="hub-photo" src="assets/bel-duda.jpg" alt="Bel e Duda, interpretados por Mariana Ximenes e Daniel de Oliveira" width="606" height="401"><span class="hub-card-copy"><span class="hub-icon"><img src="assets/icons/play.svg" alt="" width="24" height="24"></span><b>Momentos<br>marcantes</b><small>O romance de<br>Bel e Duda</small></span></button>
+        <a class="hub-card hub-music" href="#trilha"><img class="hub-photo" src="assets/home-record.webp" alt="Disco de vinil em um toca-discos" width="700" height="340"><span class="hub-card-copy"><span class="hub-icon"><img src="assets/icons/music-notes.svg" alt="" width="24" height="24"></span><b>Trilha sonora</b><small>Músicas de<br>uma geração</small></span></a>
+      </div>
+      <a class="home-quiz" href="#quiz"><div><small>UMA DESCOBERTA SOBRE VOCÊ</small><b>Você é Luxus ou Saara?</b><p>Descubra em 3 perguntas.</p></div><span class="home-round-arrow"><img src="assets/icons/arrow-right.svg" alt="" width="25" height="25"></span></a>
+      <a class="home-story" href="#historia"><img class="home-story-photo" src="assets/foguinho.jpg" alt="Foguinho, interpretado por Lázaro Ramos" width="1080" height="720"><div><small><img src="assets/icons/television.svg" alt="" width="16" height="16"> A HISTÓRIA DA VEZ</small><b>Encontros e ambições</b><p>Conheça os encontros dessa história.</p></div><span class="home-round-arrow"><img src="assets/icons/arrow-right.svg" alt="" width="24" height="24"></span></a>
+    </section>
     <div class="ticker" aria-hidden="true"><div>LUXO <span>✳</span> AMBIÇÃO <span>✳</span> ROMANCE <span>✳</span> SAARA <span>✳</span> GLAMOUR <span>✳</span> LUXUS <span>✳</span> HUMOR <span>✳</span> LUXO <span>✳</span> AMBIÇÃO <span>✳</span> ROMANCE <span>✳</span></div></div>
     <div class="serpent-stitch" aria-hidden="true"><svg viewBox="0 0 1200 42" preserveAspectRatio="none"><path d="M-20 25 C88 2 162 42 274 20 S470 4 584 25 S776 40 891 17 S1082 5 1220 24"/><circle cx="584" cy="25" r="3"/></svg></div>
     <div class="story-switch" role="group" aria-label="Explorar a novela"><button data-story="historia" aria-pressed="true">Sinopse</button><button data-story="universos" aria-pressed="false">Cenários</button></div>
@@ -67,7 +68,8 @@
     <section class="install-strip"><div><span aria-hidden="true">C&L</span><div><p class="eyebrow">LEVE A NOVELA COM VOCÊ</p><h2>Instale esta experiência.</h2><p>Abra como um aplicativo e acesse novamente mesmo quando a conexão estiver instável.</p></div></div><button class="button install-button" id="install-app" hidden>Instalar no dispositivo <span>↓</span></button><p class="ios-tip" id="ios-tip" hidden>No iPhone: toque em Compartilhar e depois em “Adicionar à Tela de Início”.</p></section>
     <section class="endnote"><span aria-hidden="true">✳</span><p>O valor de uma história<br>vai muito além da <i>vitrine.</i></p><a href="#inicio" aria-label="Voltar ao início">↑</a></section>
   </main>
+  <dialog id="moments-dialog" class="moments-dialog" aria-labelledby="moments-title"><button class="dialog-close" aria-label="Fechar momentos">×</button><img class="moments-image" src="assets/bel-duda.jpg" alt="Bel e Duda juntos ao pôr do sol" width="606" height="401"><div class="dialog-copy"><p class="eyebrow">O ROMANCE TEM SEU LUGAR</p><h2 id="moments-title">Bel &amp; Duda</h2><p>Mariana Ximenes e Daniel de Oliveira</p><p>O encontro entre o universo dos perfumes de Bel e o cotidiano de Duda traz o romance para o centro dessa história.</p><a class="button moments-cast-link" href="#personagens">Conhecer os personagens <img class="ui-icon" src="assets/icons/arrow-right.svg" alt="" width="20" height="20"></a></div></dialog>
   <dialog id="character-dialog"><button class="dialog-close" aria-label="Fechar detalhes">×</button><div class="dialog-layout"><img id="dialog-image" src="assets/leona.jpg" alt=""><div class="dialog-copy"><p class="eyebrow">PERSONALIDADE EM PRIMEIRO PLANO</p><h2 id="dialog-name"></h2><p id="dialog-actor" class="dialog-actor"></p><p id="dialog-description"></p><div class="dialog-style"><span>ASSINATURA VISUAL</span><p id="dialog-style"></p></div><p class="safe-dialog">✳ Só o ponto de partida. Nenhuma reviravolta por aqui.</p></div></div></dialog>
-  <dialog id="credits-dialog"><button class="dialog-close" aria-label="Fechar créditos">×</button><div class="credits-copy"><p class="eyebrow">POR TRÁS DESTA VITRINE</p><h2>Fontes & <i>créditos.</i></h2><p>Projeto independente de fã, sem vínculo oficial com a Globo. Textos editoriais originais baseados na apresentação da obra, figurinos e cenografia.</p><p>Novela de João Emanuel Carneiro. Direção geral e de núcleo: Wolf Maya. Exibição original: 2006.</p><p>Fotografias: Márcio de Souza, João Miguel Júnior e Renato Rocha Miranda / Globo. Imagens consultadas no acervo Memória Globo.</p><p>Fontes de pesquisa abaixo podem conter spoilers fora deste site.</p><a href="https://memoriaglobo.globo.com/entretenimento/novelas/cobras-lagartos/" target="_blank" rel="noopener noreferrer">Memória Globo · Acervo da novela ↗</a></div></dialog>
+  <dialog id="credits-dialog"><button class="dialog-close" aria-label="Fechar créditos">×</button><div class="credits-copy"><p class="eyebrow">POR TRÁS DESTA VITRINE</p><h2>Fontes & <i>créditos.</i></h2><p>Projeto independente de fã, sem vínculo oficial com a Globo. Textos editoriais originais baseados na apresentação da obra, figurinos e cenografia.</p><p>Novela de João Emanuel Carneiro. Direção geral e de núcleo: Wolf Maya. Exibição original: 2006.</p><p>Composição da tela inicial e imagens decorativas criadas com IA a partir da referência visual. Retratos dos personagens: divulgação da novela.</p><p>Ícones: Phosphor Icons, licença MIT.</p><p>Fotografias: Márcio de Souza, João Miguel Júnior e Renato Rocha Miranda / Globo. Imagens consultadas no acervo Memória Globo.</p><p>Fontes de pesquisa abaixo podem conter spoilers fora deste site.</p><a href="https://memoriaglobo.globo.com/entretenimento/novelas/cobras-lagartos/" target="_blank" rel="noopener noreferrer">Memória Globo · Acervo da novela ↗</a></div></dialog>
   <script src="app.js"></script>
 </body></html>

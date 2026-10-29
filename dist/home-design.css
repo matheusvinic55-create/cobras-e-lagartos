@@ -1,0 +1,81 @@
+/* Home art direction: cinematic emerald, warm gold, real cast portraits.
+   Keep the existing light reading screens and hash routes intact. */
+html{background:#061d14}
+body[data-screen=inicio]{background:#061d14;color:#f5f2e7;padding-bottom:calc(83px + env(safe-area-inset-bottom));--home-gold:#e1bd76}
+body[data-screen=inicio] .ambient-lights{display:none}
+body[data-screen=inicio] .header{position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(calc(100% - 36px),1004px);height:66px;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;color:#f8f4e8;padding:4px 0;z-index:8}
+body[data-screen=inicio] .header .brand{font:500 36px/.9 var(--serif);letter-spacing:-3px;display:block;min-height:44px;padding-top:4px}
+body[data-screen=inicio] .app-screen-title{visibility:hidden}
+.app-info img{display:block;margin:auto;filter:brightness(.45)}
+body[data-screen=inicio] .app-info{border-color:#dcc482b3;background:#061a1459}
+body[data-screen=inicio] .app-info img{filter:none}
+body[data-screen=inicio] main{width:min(100%,1040px);margin:0 auto}
+body[data-screen=inicio] .app-panel{animation:none}
+.app-mode .hero .home-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+body[data-screen=inicio] .hero{display:block;position:relative;aspect-ratio:1.42;min-height:0;height:auto;max-height:590px;isolation:isolate;padding:0;margin:0 0 0;border:0;border-radius:0 0 20px 20px;box-shadow:none;background:#061d14;color:#fff;overflow:hidden}
+body[data-screen=inicio] .hero:before{display:none}
+body[data-screen=inicio] .hero-text{position:absolute;left:26%;right:4%;bottom:5.2%;width:auto;text-align:center;z-index:2}
+body[data-screen=inicio] .hero .eyebrow{display:block;color:#f0eee4;font-size:clamp(7px,1.1vw,12px);letter-spacing:.3em;font-weight:600;text-shadow:0 2px 8px #02120d}
+body[data-screen=inicio] .hero h1{display:block;width:100%;max-width:100%;margin:12px 0 0;background:none;color:#fcfaf1;font:500 clamp(43px,9vw,104px)/.83 var(--serif);letter-spacing:-.065em;text-shadow:0 2px 14px #031b12}
+body[data-screen=inicio] .title-bottom{justify-content:center;letter-spacing:-.07em;margin-top:2px}
+body[data-screen=inicio] .title-bottom em{color:var(--home-gold);font-weight:500;margin-right:.04em}
+body[data-screen=inicio] .red-dot{color:var(--home-gold)}
+body[data-screen=inicio] .hero-kicker{font:italic 500 clamp(17px,2.9vw,36px)/1.2 var(--serif);letter-spacing:-.035em;margin-top:17px;white-space:nowrap;text-shadow:0 2px 8px #02190e}
+body[data-screen=inicio] .hero-kicker i{color:var(--home-gold)}
+body[data-screen=inicio] .hero .button{display:inline-flex;min-height:36px;margin-top:13px;padding:0 20px;gap:26px;background:#f6e9be;color:#101c13;font-size:12px;font-weight:800;border:1px solid #e8d39f;box-shadow:0 4px 18px #051c1440}
+.hero .button .ui-icon{filter:brightness(.12)}
+body[data-screen=inicio] .home-hub{padding:14px 15px 0}
+body[data-screen=inicio] .hub-heading{gap:8px;margin:0 4px 9px}
+body[data-screen=inicio] .hub-heading h2{font:500 clamp(23px,3.2vw,37px)/1.15 var(--serif);letter-spacing:-.045em;white-space:nowrap}
+body[data-screen=inicio] .hub-heading>a{display:flex;align-items:center;gap:6px;min-height:36px;color:var(--home-gold);font-size:10px;white-space:nowrap;margin-left:auto}
+.ui-icon{display:block;flex-shrink:0}
+body[data-screen=inicio] .hub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+body[data-screen=inicio] .hub-grid .hub-card{position:relative;display:block;width:100%;aspect-ratio:2.1;min-height:96px;overflow:hidden;isolation:isolate;padding:0;text-align:left;border:1px solid #b6ab7c80;border-radius:12px;background:#09271e;color:#f8f4e8;box-shadow:none;transition:border-color .2s,transform .2s}
+body[data-screen=inicio] .hub-card:hover{border-color:#e4c27e;transform:translateY(-1px)}
+body[data-screen=inicio] .hub-card:focus-visible{outline:2px solid #f0cf88;outline-offset:3px}
+.hub-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hub-cast .hub-photo{object-position:77% 32%;width:77%;left:auto;right:0}
+.hub-romance .hub-photo{object-position:64% center;width:88%;left:auto;right:0}
+.hub-music .hub-photo{object-position:right center}
+.world-photos{position:absolute;inset:0;display:flex;z-index:-2}
+.world-photos img{height:100%;width:50%;object-fit:cover}
+body[data-screen=inicio] .hub-grid .hub-card-copy{display:flex;flex-direction:column;align-items:flex-start;position:relative;width:57%;height:100%;padding:9px 0 8px 14px;background:#041c15bd;box-shadow:12px 0 18px #041c1570;gap:0}
+body[data-screen=inicio] .hub-icon{display:flex;align-items:center;justify-content:center;width:35px;height:35px;min-height:35px;border:1px solid #e3c179;border-radius:50%;background:transparent;color:var(--home-gold);margin:0 0 4px}
+.hub-icon img{width:23px;height:23px}
+body[data-screen=inicio] .hub-grid b{font:500 clamp(14px,2.2vw,25px)/.97 var(--serif);letter-spacing:-.025em;white-space:nowrap;text-shadow:0 1px 4px #041c15}
+body[data-screen=inicio] .hub-grid small{display:block;font-size:clamp(9px,1.2vw,12px);line-height:1.03;color:#d1d5c6;margin-top:3px}
+body[data-screen=inicio] .home-quiz{display:flex;position:relative;align-items:center;min-height:70px;gap:8px;margin-top:8px;padding:10px 10px 10px 28%;border:1px solid #9c9b699e;border-radius:14px;background:#072a1a url('assets/home-quiz.webp') center/cover no-repeat;color:#f3efdd}
+body[data-screen=inicio] .home-quiz small{color:#e1c281;font-size:clamp(6px,.9vw,9px);letter-spacing:.21em;white-space:nowrap}
+body[data-screen=inicio] .home-quiz b{font:500 clamp(19px,2.8vw,33px)/1.07 var(--serif);letter-spacing:-.04em;margin-top:3px;white-space:nowrap}
+body[data-screen=inicio] .home-quiz p{font-size:10px;color:#e0e3d7;margin-top:3px}
+body[data-screen=inicio] .home-round-arrow{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:35px;height:35px;margin-left:auto;border:1px solid #e5c17b;border-radius:50%;background:#e5c17b}
+.home-quiz .home-round-arrow img{filter:brightness(.15)}
+body[data-screen=inicio] .home-story{display:flex;align-items:center;position:relative;min-height:76px;margin-top:8px;isolation:isolate;overflow:hidden;padding:10px 10px 10px 34%;border:1px solid #b8a06c80;border-radius:14px;background:#231c12;color:#f6f0df}
+.home-story-photo{position:absolute;left:0;top:0;width:37%;height:100%;object-fit:cover;object-position:52% 30%;z-index:-1}
+.home-story>div{min-width:0;padding-right:5px}
+.home-story small{display:flex;align-items:center;gap:7px;font-size:7px;color:#e3c179;letter-spacing:.17em}
+.home-story b{display:block;margin-top:3px;font:500 clamp(19px,2.8vw,32px)/1.02 var(--serif);letter-spacing:-.025em}
+.home-story p{max-width:290px;margin-top:3px;font-size:10px;line-height:1.15;color:#dad3c5}
+body[data-screen=inicio] .home-story .home-round-arrow{background:#201b10c4;width:29px;height:29px}
+.tab-icon{width:24px;height:24px;filter:brightness(.5) saturate(.5)}
+body[data-screen=inicio] .app-tabs{width:min(calc(100% - 30px),610px);bottom:max(9px,env(safe-area-inset-bottom));border:1px solid #a5b18c38;border-radius:19px;padding:0;background:#071b14f5;box-shadow:0 5px 20px #0008;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+body[data-screen=inicio] .app-tabs button{min-height:53px;padding:6px 0;gap:4px;color:#d5d8cb;border-radius:17px}
+body[data-screen=inicio] .app-tabs button[aria-selected=true]{background:#16492f;color:#f4d691;box-shadow:inset 0 -1px #e2c179}
+body[data-screen=inicio] .tab-icon{width:23px;height:23px;filter:grayscale(1) brightness(1.3)}
+body[data-screen=inicio] .app-tabs button[aria-selected=true] .tab-icon{filter:none}
+body[data-screen=inicio] .app-tabs span{font-size:9px;font-weight:500}
+.moments-dialog{width:min(510px,90vw)}
+.moments-image{width:100%;max-height:290px;object-fit:cover}
+.moments-dialog .dialog-copy{padding:26px}
+.moments-dialog .dialog-copy h2{margin-top:9px}
+.moments-cast-link{margin-top:24px;gap:12px}
+@media(min-width:701px){body[data-screen=inicio] .hero{border-radius:0 0 24px 24px}body[data-screen=inicio] .hero-text{bottom:7%;left:28%;right:8%}body[data-screen=inicio] .hero h1{font-size:clamp(75px,9vw,104px)}body[data-screen=inicio] .hero .button{min-height:46px;font-size:16px;margin-top:22px}body[data-screen=inicio] .hero-kicker{margin-top:28px}body[data-screen=inicio] .home-hub{padding:22px 24px 0}body[data-screen=inicio] .hub-grid{gap:12px}body[data-screen=inicio] .hub-grid .hub-card-copy{padding:17px 20px}body[data-screen=inicio] .hub-icon{width:44px;height:44px;min-height:44px;margin-bottom:10px}body[data-screen=inicio] .home-quiz{min-height:108px;margin-top:12px;padding-right:24px}body[data-screen=inicio] .home-story{min-height:110px;margin-top:12px;padding-right:24px}body[data-screen=inicio] .home-quiz p,body[data-screen=inicio] .home-story p{font-size:13px}}
+@media(max-width:390px){body[data-screen=inicio] .hero h1{font-size:42px}body[data-screen=inicio] .hero-kicker{font-size:15px;margin-top:12px}body[data-screen=inicio] .hero .button{font-size:11px;min-height:32px;margin-top:10px;padding:0 16px;gap:18px}body[data-screen=inicio] .hub-heading h2{font-size:21px}body[data-screen=inicio] .hub-grid .hub-card-copy{padding-left:10px}body[data-screen=inicio] .home-quiz{padding-left:25%;padding-right:8px}body[data-screen=inicio] .home-quiz b{font-size:17px}body[data-screen=inicio] .home-quiz .home-round-arrow{width:30px;height:30px}}
+@media(display-mode:standalone){body[data-screen=inicio] .header{top:env(safe-area-inset-top);height:58px;padding:0}body[data-screen=inicio] .hero{margin-top:env(safe-area-inset-top)}}
+@media(prefers-reduced-motion:reduce){body[data-screen=inicio] .hub-card:hover{transform:none}}
+/* Keep both faces in the romance photograph clear of the caption. */
+@media(max-width:700px){body[data-screen=inicio] .hero-text{left:18%;right:8%}body[data-screen=inicio] .hero h1{font-size:clamp(45px,12vw,78px)}body[data-screen=inicio] .hub-icon{width:32px;height:32px;min-height:32px;margin-bottom:3px}body[data-screen=inicio] .hub-grid .hub-card-copy{padding-top:8px;padding-bottom:6px}body[data-screen=inicio] .hub-romance .hub-card-copy{width:43%;box-shadow:8px 0 12px #041c1570}body[data-screen=inicio] .hub-romance .hub-photo{width:72%;object-position:center}}
+/* Match the reference's app content area; the system status bar is OS-owned. */
+html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
+@media(max-width:700px){body[data-screen=inicio] .hero{aspect-ratio:1.55}body[data-screen=inicio] .hero h1{font-size:clamp(43px,10.8vw,74px)}body[data-screen=inicio] .hub-heading>a{min-height:26px}body[data-screen=inicio] .hub-grid .hub-card{min-height:94px}body[data-screen=inicio] .hub-grid small{line-height:1.04}}
+@media(max-width:700px){body[data-screen=inicio] .home-hub{padding-top:10px}body[data-screen=inicio] .home-story{min-height:70px;padding-top:8px;padding-bottom:8px}}
